@@ -119,11 +119,11 @@ UTI_TimevalToDouble(const struct timeval *tv)
 void
 UTI_DoubleToTimeval(double a, struct timeval *b)
 {
-  double frac_part;
+  double foo;
 
   b->tv_sec = a;
-  frac_part = 1.0e6 * (a - b->tv_sec);
-  b->tv_usec = round(frac_part);
+    foo = 1.0e6 * (a - b->tv_sec);
+  b->tv_usec = round(foo);
   UTI_NormaliseTimeval(b);
 }
 
