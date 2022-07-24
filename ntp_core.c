@@ -333,7 +333,7 @@ static void set_connectivity(NCR_Instance inst, SRC_Connectivity connectivity);
 /* ================================================== */
 
 static void
-do_size_checks(void)
+do_size_checks_updated(void)
 {
   /* Assertions to check the sizes of certain data types
      and the positions of certain record fields */
@@ -420,7 +420,7 @@ handle_slew(struct timespec *raw, struct timespec *cooked, double dfreq,
 void
 NCR_Initialise(void)
 {
-  do_size_checks();
+  do_size_checks_updated();
   do_time_checks();
 
   logfileid = CNF_GetLogMeasurements(&log_raw_measurements) ? LOG_FileOpen("measurements",

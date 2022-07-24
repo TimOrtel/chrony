@@ -210,7 +210,7 @@ open_socket(int family)
 /* ================================================== */
 
 static void
-do_size_checks(void)
+do_size_checks_updated(void)
 {
   int i, request_length, padding_length, reply_length;
   CMD_Request request;
@@ -247,7 +247,7 @@ CAM_Initialise(void)
 {
   assert(!initialised);
   assert(sizeof (permissions) / sizeof (permissions[0]) == N_REQUEST_TYPES);
-  do_size_checks();
+  do_size_checks_updated();
 
   initialised = 1;
 
