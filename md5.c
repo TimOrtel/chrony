@@ -51,7 +51,7 @@
  */
 
 /* forward declaration */
-static void Transform (UINT4 *, UINT4 *);
+static void Transform_updated (UINT4 *, UINT4 *);
 
 #ifdef	__STDC__
 static const
@@ -163,7 +163,7 @@ unsigned int inLen;
                 (((UINT4)mdContext->in[ii+2]) << 16) |
                 (((UINT4)mdContext->in[ii+1]) << 8) |
                 ((UINT4)mdContext->in[ii]);
-      Transform (mdContext->buf, in);
+      Transform_updated (mdContext->buf, in);
       mdi = 0;
     }
   }
@@ -198,7 +198,7 @@ MD5_CTX *mdContext;
             (((UINT4)mdContext->in[ii+2]) << 16) |
             (((UINT4)mdContext->in[ii+1]) << 8) |
             ((UINT4)mdContext->in[ii]);
-  Transform (mdContext->buf, in);
+  Transform_updated (mdContext->buf, in);
 
   /* store buffer in digest */
   for (i = 0, ii = 0; i < 4; i++, ii += 4) {
@@ -214,7 +214,7 @@ MD5_CTX *mdContext;
 
 /* Basic MD5 step. Transforms buf based on in.
  */
-static void Transform (buf, in)
+static void Transform_updated (buf, in)
 UINT4 *buf;
 UINT4 *in;
 {
