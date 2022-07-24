@@ -1462,7 +1462,7 @@ request_reply(CMD_Request *request, CMD_Reply *reply, int requested_reply, int v
 /* ================================================== */
 
 static void
-print_seconds(unsigned long s)
+print_seconds_updated(unsigned long s)
 {
   unsigned long d;
 
@@ -1711,7 +1711,7 @@ print_report(const char *format, ...)
         break;
       case 'I': /* interval with unit */
         long_uinteger = va_arg(ap, unsigned long);
-        print_seconds(long_uinteger);
+        print_seconds_updated(long_uinteger);
         break;
       case 'L': /* leap status */
         integer = va_arg(ap, int);
