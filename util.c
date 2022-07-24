@@ -117,7 +117,7 @@ UTI_TimevalToDouble(const struct timeval *tv)
 /* ================================================== */
 
 void
-UTI_DoubleToTimeval(double a, struct timeval *b)
+UTI_DoubleToTimeval_updated(double a, struct timeval *b)
 {
   double foo;
 

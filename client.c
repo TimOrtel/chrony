@@ -1282,7 +1282,7 @@ submit_request(CMD_Request *request, CMD_Reply *reply)
       continue;
     }
 
-    UTI_DoubleToTimeval(timeout, &tv);
+    UTI_DoubleToTimeval_updated(timeout, &tv);
 
     FD_ZERO(&rdfd);
     FD_SET(sock_fd, &rdfd);
@@ -2935,7 +2935,7 @@ process_cmd_waitsync(char *line)
     }
 
     if (!ret && (!max_tries || i < max_tries) && !quit) {
-      UTI_DoubleToTimeval(interval, &timeout);
+      UTI_DoubleToTimeval_updated(interval, &timeout);
       if (select(0, NULL, NULL, NULL, &timeout))
         break;
     } else {

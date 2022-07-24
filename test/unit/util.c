@@ -78,16 +78,16 @@ test_unit(void)
   TEST_CHECK(UTI_DoubleToNtp32(1000000) == htonl(0xffffffff));
   TEST_CHECK(UTI_DoubleToNtp32(-1.0) == htonl(0));
 
-  UTI_DoubleToTimeval(0.4e-6, &tv);
+  UTI_DoubleToTimeval_updated(0.4e-6, &tv);
   TEST_CHECK(tv.tv_sec == 0);
   TEST_CHECK(tv.tv_usec == 0);
-  UTI_DoubleToTimeval(-0.4e-6, &tv);
+  UTI_DoubleToTimeval_updated(-0.4e-6, &tv);
   TEST_CHECK(tv.tv_sec == 0);
   TEST_CHECK(tv.tv_usec == 0);
-  UTI_DoubleToTimeval(0.5e-6, &tv);
+  UTI_DoubleToTimeval_updated(0.5e-6, &tv);
   TEST_CHECK(tv.tv_sec == 0);
   TEST_CHECK(tv.tv_usec == 1);
-  UTI_DoubleToTimeval(-0.5e-6, &tv);
+  UTI_DoubleToTimeval_updated(-0.5e-6, &tv);
   TEST_CHECK(tv.tv_sec == -1);
   TEST_CHECK(tv.tv_usec == 999999);
 
@@ -180,7 +180,7 @@ test_unit(void)
   tv.tv_usec = 500000;
   TEST_CHECK(fabs(UTI_TimevalToDouble(&tv) - 1.5) < 1.0e-15);
 
-  UTI_DoubleToTimeval(2.75, &tv);
+  UTI_DoubleToTimeval_updated(2.75, &tv);
   TEST_CHECK(tv.tv_sec == 2);
   TEST_CHECK(tv.tv_usec == 750000);
 

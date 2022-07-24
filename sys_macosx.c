@@ -168,7 +168,7 @@ start_adjust(void)
 
   adjust_required = - (accrued_error + offset_register + predicted_error);
 
-  UTI_DoubleToTimeval(adjust_required, &newadj);
+  UTI_DoubleToTimeval_updated(adjust_required, &newadj);
   adjustment_requested = UTI_TimevalToDouble(&newadj);
   rounding_error = adjust_required - adjustment_requested;
 

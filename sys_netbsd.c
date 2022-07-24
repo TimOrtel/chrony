@@ -62,7 +62,7 @@ accrue_offset(double offset, double corr_rate)
   struct timeval newadj, oldadj;
   double doldadj;
 
-  UTI_DoubleToTimeval(-offset, &newadj);
+  UTI_DoubleToTimeval_updated(-offset, &newadj);
 
   if (PRV_AdjustTime(&newadj, &oldadj) < 0)
     LOG_FATAL("adjtime() failed");
@@ -70,7 +70,7 @@ accrue_offset(double offset, double corr_rate)
   /* Add the old remaining adjustment if not zero */
   doldadj = UTI_TimevalToDouble(&oldadj);
   if (doldadj != 0.0) {
-    UTI_DoubleToTimeval(-offset + doldadj, &newadj);
+    UTI_DoubleToTimeval_updated(-offset + doldadj, &newadj);
     if (PRV_AdjustTime(&newadj, NULL) < 0)
       LOG_FATAL("adjtime() failed");
   }

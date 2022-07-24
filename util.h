@@ -63,7 +63,7 @@ extern double UTI_TimevalToDouble(const struct timeval *tv);
 
 /* Convert a number of seconds expressed in floating point into a
    timeval */
-extern void UTI_DoubleToTimeval(double a, struct timeval *b);
+extern void UTI_DoubleToTimeval_updated(double a, struct timeval *b);
 
 /* Normalise a struct timeval, by adding or subtracting seconds to bring
    its microseconds field into range */
